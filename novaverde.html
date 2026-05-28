@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>NOVA VERDE | Futuro Natural Gourmet</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        :root{
+            --bg:#f7f8f5;
+            --white:#ffffff;
+            --dark:#101513;
+            --green:#18352c;
+            --green-soft:#2b5145;
+            --gold:#c5a46d;
+            --gray:#6c757d;
+            --border:rgba(0,0,0,0.08);
+        }
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        body{
+            font-family:'Inter', sans-serif;
+            background:var(--bg);
+            color:var(--dark);
+            overflow-x:hidden;
+        }
+
+        h1,h2,h3,h4{
+            font-family:'Cormorant Garamond', serif;
+            font-weight:700;
+            letter-spacing:0.5px;
+        }
+
+        section{
+            padding:110px 0;
+        }
+
+        /* NAVBAR */
+
+        .navbar{
+            background:rgba(255,255,255,0.92);
+            backdrop-filter:blur(10px);
+            border-bottom:1px solid rgba(0,0,0,0.05);
+            transition:all .3s ease;
+        }
+
+        .navbar-brand{
+            font-size:1.7rem;
+            color:var(--green);
+            letter-spacing:2px;
+            font-weight:700;
+        }
+
+        .navbar-brand span{
+            color:var(--gold);
+        }
+
+        .nav-link{
+            color:var(--dark);
+            font-weight:500;
+            margin-left:12px;
+            transition:0.3s;
+        }
+
+        .nav-link:hover{
+            color:var(--green);
+        }
+
+        .dropdown-menu{
+            border:none;
+            border-radius:18px;
+            padding:12px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .dropdown-item{
+            border-radius:10px;
+            padding:10px 14px;
+        }
+
+        .dropdown-item:hover{
+            background:#f0f4f2;
+        }
+
+        /* HERO */
+
+        .hero{
+            min-height:100vh;
+            display:flex;
+            align-items:center;
+            position:relative;
+            overflow:hidden;
+            background:
+                radial-gradient(circle at top right, rgba(197,164,109,0.18), transparent 25%),
+                radial-gradient(circle at bottom left, rgba(24,53,44,0.12), transparent 30%),
+                var(--bg);
+        }
+
+        .hero::before{
+            content:'';
+            position:absolute;
+            width:600px;
+            height:600px;
+            background:rgba(24,53,44,0.04);
+            border-radius:50%;
+            top:-200px;
+            right:-150px;
+            filter:blur(40px);
+        }
+
+        .hero-content{
+            position:relative;
+            z-index:2;
+        }
+
+        .hero-subtitle{
+            text-transform:uppercase;
+            letter-spacing:3px;
+            color:var(--gold);
+            font-size:0.85rem;
+            margin-bottom:20px;
+        }
+
+        .hero h1{
+            font-size:clamp(3rem,7vw,6rem);
+            line-height:0.95;
+            margin-bottom:28px;
+            color:var(--green);
+        }
+
+        .hero p{
+            max-width:620px;
+            font-size:1.05rem;
+            color:#4d5552;
+            line-height:1.9;
+            margin-bottom:40px;
+        }
+
+        .btn-premium{
+            background:var(--green);
+            color:white;
+            border:none;
+            padding:16px 34px;
+            border-radius:50px;
+            font-weight:600;
+            letter-spacing:0.5px;
+            transition:0.4s ease;
+        }
+
+        .btn-premium:hover{
+            background:var(--dark);
+            transform:translateY(-3px);
+        }
+
+        .hero-card{
+            background:rgba(255,255,255,0.75);
+            backdrop-filter:blur(12px);
+            border:1px solid rgba(255,255,255,0.4);
+            border-radius:28px;
+            padding:35px;
+            box-shadow:0 20px 60px rgba(0,0,0,0.08);
+        }
+
+        .hero-image{
+            width:100%;
+            border-radius:24px;
+            object-fit:cover;
+            min-height:420px;
+        }
+
+        /* SECTION TITLES */
+
+        .section-title{
+            text-align:center;
+            margin-bottom:70px;
+        }
+
+        .section-title span{
+            color:var(--gold);
+            text-transform:uppercase;
+            letter-spacing:3px;
+            font-size:0.85rem;
+        }
+
+        .section-title h2{
+            font-size:3rem;
+            margin-top:12px;
+            color:var(--green);
+        }
+
+        .section-title p{
+            max-width:700px;
+            margin:auto;
+            margin-top:16px;
+            color:var(--gray);
+            line-height:1.8;
+        }
+
+        /* PHILOSOPHY */
+
+        .philosophy-box{
+            background:var(--white);
+            padding:50px;
+            border-radius:30px;
+            border:1px solid var(--border);
+            transition:0.4s ease;
+            height:100%;
+        }
+
+        .philosophy-box:hover{
+            transform:translateY(-8px);
+            box-shadow:0 20px 40px rgba(0,0,0,0.06);
+        }
+
+        .philosophy-icon{
+            width:70px;
+            height:70px;
+            border-radius:20px;
+            background:#eef3f1;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            margin-bottom:28px;
+        }
+
+        .philosophy-icon i{
+            font-size:1.7rem;
+            color:var(--green);
+        }
+
+        /* PRODUCTS */
+
+        .product-card{
+            border:none;
+            background:white;
+            border-radius:26px;
+            overflow:hidden;
+            transition:0.4s ease;
+            height:100%;
+            box-shadow:0 10px 30px rgba(0,0,0,0.04);
+        }
+
+        .product-card:hover{
+            transform:translateY(-10px);
+            box-shadow:0 20px 45px rgba(0,0,0,0.08);
+        }
+
+        .product-img{
+            height:260px;
+            object-fit:cover;
+        }
+
+        .badge-premium{
+            background:rgba(197,164,109,0.12);
+            color:var(--gold);
+            border-radius:50px;
+            padding:8px 16px;
+            font-size:0.75rem;
+            letter-spacing:1px;
+            font-weight:600;
+        }
+
+        .card-title{
+            font-size:2rem;
+            color:var(--green);
+        }
+
+        .product-price{
+            color:var(--gold);
+            font-weight:700;
+            font-size:1.1rem;
+        }
+
+        /* CONTACT */
+
+        .contact-wrapper{
+            background:linear-gradient(135deg,#18352c,#101513);
+            border-radius:40px;
+            padding:70px 50px;
+            color:white;
+            position:relative;
+            overflow:hidden;
+        }
+
+        .contact-wrapper::before{
+            content:'';
+            position:absolute;
+            width:300px;
+            height:300px;
+            background:rgba(255,255,255,0.05);
+            border-radius:50%;
+            top:-120px;
+            right:-100px;
+        }
+
+        .form-control{
+            height:56px;
+            border:none;
+            border-radius:16px;
+            padding-left:18px;
+            background:rgba(255,255,255,0.1);
+            color:white;
+        }
+
+        .form-control::placeholder{
+            color:rgba(255,255,255,0.7);
+        }
+
+        textarea.form-control{
+            height:140px;
+            padding-top:16px;
+            resize:none;
+        }
+
+        .form-control:focus{
+            background:rgba(255,255,255,0.16);
+            color:white;
+            box-shadow:none;
+            border:1px solid rgba(255,255,255,0.2);
+        }
+
+        /* FOOTER */
+
+        footer{
+            padding:40px 0;
+            background:#0b0f0e;
+            color:rgba(255,255,255,0.7);
+        }
+
+        .footer-logo{
+            font-size:1.5rem;
+            color:white;
+        }
+
+        .social-links a{
+            width:42px;
+            height:42px;
+            border-radius:50%;
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            background:rgba(255,255,255,0.08);
+            color:white;
+            margin-left:10px;
+            transition:0.3s ease;
+            text-decoration:none;
+        }
+
+        .social-links a:hover{
+            background:var(--gold);
+            transform:translateY(-4px);
+        }
+
+        /* ANIMATION */
+
+        .fade-up{
+            opacity:0;
+            transform:translateY(40px);
+            transition:all .8s ease;
+        }
+
+        .fade-up.active{
+            opacity:1;
+            transform:translateY(0);
+        }
+
+        /* MOBILE */
+
+        @media(max-width:992px){
+
+            .hero{
+                padding-top:120px;
+            }
+
+            .hero h1{
+                margin-top:20px;
+            }
+
+            .hero-card{
+                margin-top:50px;
+            }
+
+            .section-title h2{
+                font-size:2.3rem;
+            }
+
+            .contact-wrapper{
+                padding:50px 30px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+
+            <a class="navbar-brand" href="#">
+                NOVA <span>VERDE</span>
+            </a>
+
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span><i class="bi bi-list fs-2"></i></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#filosofia">Filosofía</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            Productos
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#productos">Proteínas</a></li>
+                            <li><a class="dropdown-item" href="#productos">Snacks Gourmet</a></li>
+                            <li><a class="dropdown-item" href="#productos">Nutrición Verde</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- HERO -->
+
+    <section class="hero" id="inicio">
+
+        <div class="container">
+
+            <div class="row align-items-center g-5">
+
+                <div class="col-lg-6 hero-content fade-up">
+
+                    <div class="hero-subtitle">
+                        Futuro Natural Gourmet
+                    </div>
+
+                    <h1>
+                        Alimentación premium para una nueva era humana.
+                    </h1>
+
+                    <p>
+                        Diseñamos experiencias culinarias sostenibles donde la naturaleza,
+                        la ciencia nutricional y el minimalismo gourmet convergen en una
+                        visión sofisticada del futuro.
+                    </p>
+
+                    <a href="#productos" class="btn btn-premium">
+                        Explorar Colección
+                    </a>
+
+                </div>
+
+                <div class="col-lg-6 fade-up">
+
+                    <div class="hero-card">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1547592180-85f173990554?q=80&w=1400&auto=format&fit=crop"
+                            class="hero-image"
+                            alt="Alimentos Gourmet Premium"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FILOSOFÍA -->
+
+    <section id="filosofia">
+
+        <div class="container">
+
+            <div class="section-title fade-up">
+
+                <span>Nuestra Filosofía</span>
+
+                <h2>
+                    Pureza, sostenibilidad y evolución.
+                </h2>
+
+                <p>
+                    Creamos alimentos premium inspirados en la armonía entre tecnología,
+                    nutrición consciente y respeto absoluto por el planeta.
+                </p>
+
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-lg-4 fade-up">
+
+                    <div class="philosophy-box">
+
+                        <div class="philosophy-icon">
+                            <i class="bi bi-leaf"></i>
+                        </div>
+
+                        <h3 class="mb-3">
+                            Ingredientes Naturales
+                        </h3>
+
+                        <p class="text-secondary">
+                            Seleccionamos materias primas puras y trazables para ofrecer
+                            una experiencia gourmet auténtica y saludable.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4 fade-up">
+
+                    <div class="philosophy-box">
+
+                        <div class="philosophy-icon">
+                            <i class="bi bi-globe2"></i>
+                        </div>
+
+                        <h3 class="mb-3">
+                            Futuro Sustentable
+                        </h3>
+
+                        <p class="text-secondary">
+                            Innovamos pensando en una producción responsable,
+                            ética y alineada con las necesidades del mañana.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4 fade-up">
+
+                    <div class="philosophy-box">
+
+                        <div class="philosophy-icon">
+                            <i class="bi bi-stars"></i>
+                        </div>
+
+                        <h3 class="mb-3">
+                            Gourmet Premium
+                        </h3>
+
+                        <p class="text-secondary">
+                            Fusionamos diseño culinario, nutrición avanzada y estética
+                            sofisticada en cada producto.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PRODUCTOS -->
+
+    <section id="productos">
+
+        <div class="container">
+
+            <div class="section-title fade-up">
+
+                <span>Colección Gourmet</span>
+
+                <h2>
+                    Productos diseñados para el futuro.
+                </h2>
+
+            </div>
+
+            <div class="row g-4">
+
+                <!-- PRODUCT 1 -->
+
+                <div class="col-md-6 col-lg-4 fade-up">
+
+                    <div class="card product-card">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1200&auto=format&fit=crop"
+                            class="card-img-top product-img"
+                            alt=""
+                        >
+
+                        <div class="card-body p-4">
+
+                            <span class="badge-premium">
+                                ORGANIC PREMIUM
+                            </span>
+
+                            <h3 class="card-title mt-3">
+                                Green Protein Bowl
+                            </h3>
+
+                            <p class="text-secondary mt-3">
+                                Proteína vegetal gourmet con superfoods y equilibrio nutricional avanzado.
+                            </p>
+
+                            <div class="product-price mt-4">
+                                Premium Collection
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- PRODUCT 2 -->
+
+                <div class="col-md-6 col-lg-4 fade-up">
+
+                    <div class="card product-card">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=1200&auto=format&fit=crop"
+                            class="card-img-top product-img"
+                            alt=""
+                        >
+
+                        <div class="card-body p-4">
+
+                            <span class="badge-premium">
+                                FUTURE FOOD
+                            </span>
+
+                            <h3 class="card-title mt-3">
+                                Nova Nutrition
+                            </h3>
+
+                            <p class="text-secondary mt-3">
+                                Fórmula funcional inspirada en alimentación consciente y rendimiento natural.
+                            </p>
+
+                            <div class="product-price mt-4">
+                                Signature Edition
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- PRODUCT 3 -->
+
+                <div class="col-md-6 col-lg-4 fade-up">
+
+                    <div class="card product-card">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200&auto=format&fit=crop"
+                            class="card-img-top product-img"
+                            alt=""
+                        >
+
+                        <div class="card-body p-4">
+
+                            <span class="badge-premium">
+                                GOURMET EXPERIENCE
+                            </span>
+
+                            <h3 class="card-title mt-3">
+                                Earth Essence
+                            </h3>
+
+                            <p class="text-secondary mt-3">
+                                Experiencia culinaria sofisticada basada en ingredientes puros y sostenibles.
+                            </p>
+
+                            <div class="product-price mt-4">
+                                Limited Selection
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTACT -->
+
+    <section id="contacto">
+
+        <div class="container">
+
+            <div class="contact-wrapper fade-up">
+
+                <div class="row align-items-center g-5">
+
+                    <div class="col-lg-5">
+
+                        <span class="text-uppercase" style="letter-spacing:3px;color:#c5a46d;">
+                            Contacto
+                        </span>
+
+                        <h2 class="display-4 mt-3 mb-4">
+                            Únete al futuro de la alimentación.
+                        </h2>
+
+                        <p class="text-light opacity-75">
+                            Recibe novedades, lanzamientos gourmet y experiencias exclusivas de NOVA VERDE.
+                        </p>
+
+                    </div>
+
+                    <div class="col-lg-7">
+
+                        <form id="contactForm">
+
+                            <div class="row g-3">
+
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Nombre" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" placeholder="Email" required>
+                                </div>
+
+                                <div class="col-12">
+                                    <textarea class="form-control" placeholder="Mensaje"></textarea>
+                                </div>
+
+                                <div class="col-12">
+                                    <button class="btn btn-light px-5 py-3 rounded-pill fw-semibold">
+                                        Enviar Consulta
+                                    </button>
+                                </div>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-6 mb-4 mb-lg-0">
+
+                    <div class="footer-logo">
+                        NOVA VERDE
+                    </div>
+
+                    <small>
+                        © 2026 — Futuro Natural Gourmet.
+                    </small>
+
+                </div>
+
+                <div class="col-lg-6 text-lg-end">
+
+                    <div class="social-links">
+
+                        <a href="#">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="bi bi-twitter-x"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        // Scroll Animation
+
+        const fadeElements = document.querySelectorAll('.fade-up');
+
+        const observer = new IntersectionObserver((entries) => {
+
+            entries.forEach(entry => {
+
+                if(entry.isIntersecting){
+                    entry.target.classList.add('active');
+                }
+
+            });
+
+        }, {
+            threshold:0.15
+        });
+
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Navbar Shadow on Scroll
+
+        window.addEventListener('scroll', () => {
+
+            const navbar = document.querySelector('.navbar');
+
+            if(window.scrollY > 30){
+                navbar.style.boxShadow = '0 10px 30px rgba(0,0,0,0.05)';
+            } else {
+                navbar.style.boxShadow = 'none';
+            }
+
+        });
+
+        // Simple Form Validation
+
+        const form = document.getElementById('contactForm');
+
+        form.addEventListener('submit', (e) => {
+
+            e.preventDefault();
+
+            alert('Gracias por contactarte con NOVA VERDE.');
+
+            form.reset();
+
+        });
+
+    </script>
+
+</body>
+</html>
